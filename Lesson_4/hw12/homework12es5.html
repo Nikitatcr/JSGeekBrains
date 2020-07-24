@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 1.2 ES 5</title>
+</head>
+<body>
+    <script>
+
+        //отсюда и до attached я разобрался сам//
+
+        'use strict!';
+        function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function () {
+            this.text = prompt('Введите сообщение: ');
+        };
+
+        const post1 = new Post('Iam','TEXTtextTEXTtextTextTexttexTtext', new Date());
+        console.log(post1);
+        post1.edit();
+        console.log(post1);
+
+        //Не могли бы вы объяснить, что происходит, начиная с функции AttachedPost и до конца скрипта?
+
+        function AttachedPost(author, text, date) {
+            Post.call(this, author, text, date); //вот тут я вообще не понял
+            this.highlighted = false;
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function() {
+            this.highlighted = true;
+        }
+
+        const attached1 = new AttachedPost('admin', 'lorem2 ipsum2', new Date());
+        console.log(attached1);
+        attached1.makeTextHighlighted();
+        attached1.edit('dolor2 sit2');
+        console.log(attached1);
+
+        //я вообще не смог осилить происходяшее выше
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        class Product {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+
+            makePercentDiscount() {
+                let discount = prompt('Введите размер скидки!');
+                this.price = this.price - (this.price * discount / 100);
+            }
+        }
+
+        const product1 = new Product('Чай', 230);
+        product1.makePercentDiscount();
+
+        console.log(product1);
+    </script>
+</body>
+</html>
