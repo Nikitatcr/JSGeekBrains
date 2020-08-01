@@ -20,3 +20,16 @@ tr:last-child td:first-child {
     border-left: none;
     border-bottom: none;
 }
+
+.whiteFigure {
+    color: white;
+}
+
+.blackFigure {
+    color: black;
+}
+
+i {
+    font-size: 24px;
+    text-shadow: 0 0 3px grey;
+}

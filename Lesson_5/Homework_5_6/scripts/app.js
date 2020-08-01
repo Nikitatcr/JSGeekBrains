@@ -10,6 +10,12 @@ let app = {
         //добавление доски в body
         document.body.innerHTML = board;
 
+        //Помещаем все фигуры на доску, кроме пешек
+        this.insertFiguresOnDesk();
+
+        //Помещаем пешки на доску
+        this.insertPawns();
+
         //добавляем колонку с номерами строк
         this.insertRowsNumbers();
         //добавляем строку с названиями колонок
@@ -74,6 +80,18 @@ let app = {
          return `<td data-rownum="${rowNum}" data-colchar="${colChar}" class="${color}"></td>`;
     },
 
+    insertPawns(){
+        let whitePawnsRow = document.querySelectorAll('tr:nth-child(7) td');
+        for (let i=0;i < whitePawnsRow.length;i++) {
+            whitePawnsRow[i].innerHTML = this.getFigure('pawn','whiteFigure');
+        }
+
+        let blackPawnsRow = document.querySelectorAll('tr:nth-child(2) td');
+        for (let i=0;i < blackPawnsRow.length;i++) {
+            blackPawnsRow[i].innerHTML = this.getFigure('pawn','blackFigure');
+        }
+    },
+
     /**
      * Метод вставляет на существующую доску колонку
      * слева, с указанием номера строки.
@@ -100,6 +118,26 @@ let app = {
         }
         let tbody = document.querySelector('tbody');
         tbody.insertAdjacentElement("beforeend",tr);
+    },
+
+    /**
+     * Метод вставляет все фигуры, кроме пешек
+     */
+    insertFiguresOnDesk() {
+        for (let i=0; i<positions.length;i++) {
+            let cell = document.querySelector(`[data-rownum="${positions[i].coordRow}"][data-colchar="${positions[i].coordCol}"]`);
+            let figure = this.getFigure(positions[i].figure,positions[i].color+"Figure");
+            cell.innerHTML = figure;
+        }
+    },
+    /**
+     * Метод возвращает тег i в виде строки, с подставленным именем фигуры и классом,
+     * управляющим цветом фигуры
+     * @param {string} name название фигуры, возможные значения rook, knight, bishop, queen, king, pawn
+     * @param {string} colorClass цвет фигуры, м.б. "whiteFigure", "blackFigure".
+     */
+    getFigure(name, colorClass){
+        return `<i class="fas fa-chess-${name} ${colorClass}"></i>`;
     },
 };
 
