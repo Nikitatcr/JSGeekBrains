@@ -8,9 +8,9 @@ let ticTakToe = {
     gameTableElement: document.getElementById('game'),
     status: 'playing',
     mapValues: [
-        ['','',''],
-        ['','',''],
-        ['','',''],
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
     ],
     phase: 'X',
 
@@ -45,7 +45,7 @@ let ticTakToe = {
      */
 
     initEventHandlers(){
-        //ставим обработчик, при клике натаблицу вызовется функция this.cellClickHandler.
+        //ставим обработчик, при клике на таблицу вызовется функция this.cellClickHandler.
         this.gameTableElement.addEventListener('click',event => this.cellClickHandler(event))
     },
 
@@ -180,11 +180,10 @@ let ticTakToe = {
     /**
      * Меняет фигуру (крестик или нолик)
      */
-    togglePhase(){
+    togglePhase() {
         this.phase = this.phase === 'X' ? '0' : 'X';
     },
 };
 
-//Запускаем игру при полной загрузке страницы.
 
-window.addEventListener('load',ticTakToe.init.bind(ticTakToe));
+ticTakToe.init();
