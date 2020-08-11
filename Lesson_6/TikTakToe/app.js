@@ -34,7 +34,7 @@ let ticTakToe = {
             for(let col = 0; col < 3; col++) {
                 let td = document.createElement('td');
                 td.dataset.row = row.toString();
-                td.dataset.com = col.toString();
+                td.dataset.col = col.toString();
                 tr.appendChild(td);
             }
         }
