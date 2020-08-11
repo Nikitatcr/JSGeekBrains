@@ -1,0 +1,18 @@
+ body {
+     display: grid; /* отображение гридом*/
+     grid-template-columns: repeat(3,150px); /*разбивание на колонки*/
+     grid-gap: 20px; /*расстояние между колонками*/
+ }
+
+ .product {
+     width: 150px; /*ширина класса .product*/
+ }
+
+ img {
+     display: block; /*отображение блоком изображения*/
+ }
+
+ button {
+     margin-top: 15px;
+     display: block;
+ }

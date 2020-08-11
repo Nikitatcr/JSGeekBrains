@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        /**
+         * В СТИЛЕ ES-5
+         * */
+
+        'use strict';
+
+        /**
+         * Функция создаёт продукт
+         * @param name Имя продукты
+         * @param price цена продукта
+         * @constructor
+         */
+        function Product(name, price) {
+            this.name = name;
+            this.price = price;
+            /*this.make25PercentDiscount = function () {
+                this.price = this.price - (this.price * 25 / 100);
+            }*/ //так я делал сначала сам
+        }
+
+        Product.prototype.make25PercentDiscount = function () { //так я сделал, подглядев в решённое дз
+            this.price = this.price - (this.price * 25 / 100);
+        }; //Объясните пожалуйста, почему лучше делать через Product.prototype,а не внутри конструктора.
+
+        const product1 = new Product("Чай ройбуш",100);
+        const product2 = new Product("Чай улун",350);
+        const product3 = new Product("Чай красный",450);
+
+        console.log(product1);
+        console.log(product2);
+        console.log(product3.make25PercentDiscount());
+
+
+    </script>
+</body>
+</html>

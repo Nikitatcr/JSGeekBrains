@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        function Comment(id, userName, text) {
+            this.id = id;
+            this.userName = userName;
+            this.text = text;
+            this.createdTime = new Date().setUTCDate();
+        }
+
+        const comm1 = new Comment(1,'Nikita','Комментарий текст1');
+        const comm2 = new Comment(2,'Rita','Комментарий текст2');
+        const comm3 = new Comment(3,'Nikita','Комментарий текст3');
+    </script>
+</body>
+</html>

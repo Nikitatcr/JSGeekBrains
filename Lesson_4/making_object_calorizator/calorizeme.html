@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calorizeme</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        class Human {
+            constructor(name, gender, age, height, weight, calories) {
+                this.name = name;
+                this.gender = gender;
+                this.age = age;
+                this.height = height;
+                this.weight = weight;
+                this.calories = calories;
+            }
+
+            calorizator() {
+                if (this.gender == 'male' || this.gender == 'мужской' || this.gender == 'мужчина' || this.gender == 'муж') {
+                    this.calories = ((10*this.weight) + (6.25*this.height) - (5*this.age) + 5);
+                } else if (this.gender == 'female' || this.gender == 'женский' || this.gender == 'женщина' || this.gender == 'жен') {
+                    this.calories = ((10*this.weight) + (6.25*this.height) - (5*this.age) - 161);
+                }
+            }
+        }
+
+        const human = new Human(
+            this.name = prompt('Введите ваше имя'),
+            this.gender = prompt('Введите ваш пол'),
+            this.age = prompt('Введите ваш возраст'),
+            this.height = prompt('Введите ваш рост'),
+            this.weight = prompt('Введите ваш вес'),
+
+        );
+
+        human.calorizator();
+
+        alert(`${human.name}! Ваша минимальная суточная калорийность: ${human.calories}`);
+
+        /*const human1 = new Human('Никита','male',28,171,75);
+        const human2 = new Human('Рита','female',31,168,55);
+
+        human1.calorizator();
+        human2.calorizator();
+
+        console.log(human1);
+        console.log(human2);*/
+
+    </script>
+</body>
+</html>
